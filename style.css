@@ -20,6 +20,7 @@
   /* Color — Neutral */
   --color-stone:     #d9d9d9;
   --color-blush:     #ffdada;
+  --color-white:     #ffffff;
 
   /* Color — Semantic aliases */
   --color-bg:         var(--color-cream);
@@ -777,7 +778,7 @@ section {
 
 .principles {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: var(--space-3);
 }
 
@@ -1089,11 +1090,24 @@ section {
 
 /* ─── Responsive ─────────────────────────────────────────── */
 
+html { overflow-x: hidden; }
+
 @media (max-width: 640px) {
   :root { --gutter: var(--space-6); }
-  .page { padding: var(--space-lg) var(--gutter); }
+  .page { padding: var(--space-10) var(--gutter); }
   .pairings { grid-template-columns: 1fr 1fr; }
   .voice-traits { grid-template-columns: 1fr 1fr; }
+  .principles { grid-template-columns: 1fr; }
+  .site-header { min-height: 36vh; }
+}
+
+@media (max-width: 480px) {
+  :root { --gutter: var(--space-4); }
+  .foundation-item {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+  .imagery-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 400px) {
