@@ -11,6 +11,9 @@
 </head>
 <body>
 
+  <!-- Grain texture overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
   <!-- Nav -->
   <nav class="nav">
     <div class="nav__inner">
@@ -139,37 +142,37 @@
           <span class="pairing__label" style="color:#fff6e5;">Coffee + Cream — Primary</span>
           <span class="pairing__title">ponderosa coffee</span>
           <span class="pairing__body">owner · operator</span>
-          <span class="contrast-badge" style="border: 1px solid rgba(255,246,229,0.25); color:#fff6e5;">AA pass</span>
+          <span class="contrast-badge" style="border: 1px solid rgba(255,246,229,0.2); color:#fff6e5;">AA pass</span>
         </div>
         <div class="pairing" style="background:#2c1e0f; color:#fff6e5;">
           <span class="pairing__label" style="color:#fff6e5;">Espresso + Cream</span>
           <span class="pairing__title">ponderosa coffee</span>
           <span class="pairing__body">hello@ponderosa.coffee</span>
-          <span class="contrast-badge" style="border: 1px solid rgba(255,246,229,0.2); color:#fff6e5;">AAA pass</span>
+          <span class="contrast-badge" style="border: 1px solid rgba(255,246,229,0.15); color:#fff6e5;">AAA pass</span>
         </div>
         <div class="pairing" style="background:#fff6e5; color:#836e48; outline: 1px solid #e8dece; outline-offset: -1px;">
           <span class="pairing__label" style="color:#836e48;">Cream + Coffee</span>
           <span class="pairing__title">ponderosa coffee</span>
           <span class="pairing__body">specialty roasts</span>
-          <span class="contrast-badge" style="background: rgba(131,110,72,0.1); color:#836e48;">AA pass</span>
+          <span class="contrast-badge" style="background: rgba(131,110,72,0.08); border: 1px solid rgba(131,110,72,0.15); color:#836e48;">AA pass</span>
         </div>
         <div class="pairing" style="background:#749e83; color:#fff6e5;">
           <span class="pairing__label" style="color:#fff6e5;">Sage + Cream</span>
           <span class="pairing__title">ponderosa coffee</span>
           <span class="pairing__body">@ponderosa_coffee</span>
-          <span class="contrast-badge" style="border: 1px solid rgba(255,246,229,0.25); color:#fff6e5;">AA pass</span>
+          <span class="contrast-badge" style="border: 1px solid rgba(255,246,229,0.2); color:#fff6e5;">AA pass</span>
         </div>
         <div class="pairing" style="background:#4a7a5a; color:#fff6e5;">
           <span class="pairing__label" style="color:#fff6e5;">Forest + Cream</span>
           <span class="pairing__title">ponderosa coffee</span>
           <span class="pairing__body">single origin roasts</span>
-          <span class="contrast-badge" style="border: 1px solid rgba(255,246,229,0.2); color:#fff6e5;">AAA pass</span>
+          <span class="contrast-badge" style="border: 1px solid rgba(255,246,229,0.18); color:#fff6e5;">AAA pass</span>
         </div>
         <div class="pairing" style="background:#b8d0c3; color:#2c1e0f;">
           <span class="pairing__label" style="color:#2c1e0f;">Mist + Espresso</span>
           <span class="pairing__title">ponderosa coffee</span>
           <span class="pairing__body">southern oregon</span>
-          <span class="contrast-badge" style="background: rgba(44,30,15,0.1); color:#2c1e0f;">AA pass</span>
+          <span class="contrast-badge" style="background: rgba(44,30,15,0.08); border: 1px solid rgba(44,30,15,0.12); color:#2c1e0f;">AA pass</span>
         </div>
       </div>
     </section>
@@ -186,7 +189,7 @@
             Weights: 100–900<br>
             Optical size axis: 9–144<br>
             Custom axes: SOFT (0–100), WONK (0–1)<br>
-            Brand setting: <code style="font-family:monospace; color:#749e83;">'SOFT' 0, 'WONK' 1</code><br><br>
+            Brand setting: <code>'SOFT' 0, 'WONK' 1</code><br><br>
             <a href="https://fonts.google.com/specimen/Fraunces" target="_blank" rel="noopener">Google Fonts →</a>
           </p>
         </div>
@@ -205,11 +208,11 @@
 
       <div class="type-specimens">
         <div class="type-row">
-          <div class="type-meta"><strong>Display</strong>700 · ~56px · lh 1.05</div>
+          <div class="type-meta"><strong>Display</strong>700 · ~60px · lh 1.0</div>
           <p class="t-display">ponderosa coffee</p>
         </div>
         <div class="type-row">
-          <div class="type-meta"><strong>Heading</strong>700 · 36px · lh 1.1</div>
+          <div class="type-meta"><strong>Heading</strong>700 · 36px · lh 1.2</div>
           <p class="t-heading">Single origin roasts</p>
         </div>
         <div class="type-row">
@@ -221,11 +224,11 @@
           <p class="t-body">Small-batch coffee roasted in the heart of the ponderosa. Every cup is an invitation to slow down and taste the land.</p>
         </div>
         <div class="type-row">
-          <div class="type-meta"><strong>Small</strong>400 · 14px · lh 1.6</div>
+          <div class="type-meta"><strong>Small</strong>400 · 14px · lh 1.5</div>
           <p class="t-small">central point, oregon · hello@ponderosa.coffee · @ponderosa_coffee</p>
         </div>
         <div class="type-row">
-          <div class="type-meta"><strong>Caption</strong>400 · 11.5px · ls 0.12em</div>
+          <div class="type-meta"><strong>Caption</strong>400 · 10px · ls 0.2em</div>
           <p class="t-caption">PONDEROSA COFFEE · CENTRAL POINT, OR</p>
         </div>
       </div>
@@ -284,8 +287,8 @@
       </div>
 
       <!-- Voice spectrum -->
-      <div class="voice-spectrum" style="margin-bottom: var(--space-md);">
-        <p style="font-size:0.63rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-coffee); opacity:0.45; margin-bottom:1rem;">We are → not</p>
+      <div class="voice-spectrum">
+        <span class="voice-spectrum__eyebrow">We are → not</span>
         <div class="spectrum-row">
           <span class="spectrum-label">Warm</span>
           <span class="spectrum-arrow">→</span>
@@ -319,34 +322,34 @@
       </div>
 
       <!-- Writing principles -->
-      <p style="font-size:0.63rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-coffee); opacity:0.45; margin-bottom:1rem;">Writing Principles</p>
-      <div class="principles" style="margin-bottom: var(--space-md);">
-        <div class="principle">
+      <span class="principles-header">Writing Principles</span>
+      <div class="principles">
+        <div class="principle" data-num="01">
           <span class="principle__num">01</span>
           <span class="principle__title">Write at the pace of a pour</span>
           <span class="principle__body">Short sentences. White space. Let the reader breathe. If a sentence can be cut without losing meaning, cut it.</span>
         </div>
-        <div class="principle">
+        <div class="principle" data-num="02">
           <span class="principle__num">02</span>
           <span class="principle__title">Name the place, name the thing</span>
           <span class="principle__body">Be specific. "Ethiopian natural process" beats "great beans." Specificity earns trust and signals care.</span>
         </div>
-        <div class="principle">
+        <div class="principle" data-num="03">
           <span class="principle__num">03</span>
           <span class="principle__title">No hype words</span>
           <span class="principle__body">Avoid: amazing, perfect, best, love, obsessed, incredible, excited. These words cost credibility and add noise.</span>
         </div>
-        <div class="principle">
+        <div class="principle" data-num="04">
           <span class="principle__num">04</span>
           <span class="principle__title">Lowercase where possible</span>
           <span class="principle__body">The brand name and logo live in lowercase. Follow that lead in copy — it feels softer and more approachable.</span>
         </div>
-        <div class="principle">
+        <div class="principle" data-num="05">
           <span class="principle__num">05</span>
           <span class="principle__title">Let silence work</span>
           <span class="principle__body">Not every post needs a call to action. Sometimes the right word is no word at all — a photo, a dot, a pause.</span>
         </div>
-        <div class="principle">
+        <div class="principle" data-num="06">
           <span class="principle__num">06</span>
           <span class="principle__title">Earn the emotion</span>
           <span class="principle__body">Don't tell people how to feel. Describe what's real — the smell, the morning light, the process — and trust the reader.</span>
@@ -354,7 +357,7 @@
       </div>
 
       <!-- Copy do/don't -->
-      <p style="font-size:0.63rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-coffee); opacity:0.45; margin-bottom:1rem;">Copy Examples</p>
+      <span class="copy-examples-header">Copy Examples</span>
       <div class="copy-examples">
         <div class="copy-card copy-card--do">
           <div class="copy-card__header">Do</div>
@@ -384,7 +387,14 @@
       <p class="section-label">Design Tokens</p>
 
       <div class="token-block">
-        <pre><span class="c-section">/* ──────────────────────────────────────────────────── *
+        <div class="token-block__header">
+          <div class="token-block__dot"></div>
+          <div class="token-block__dot"></div>
+          <div class="token-block__dot"></div>
+          <span class="token-block__title">style.css — :root</span>
+        </div>
+        <div class="token-block__body">
+          <pre><span class="c-section">/* ──────────────────────────────────────────────────── *
  * Ponderosa Coffee — Design Tokens                    *
  * ──────────────────────────────────────────────────── */</span>
 
@@ -407,7 +417,7 @@
 
   <span class="c-cmnt">/* Typography ────────────────────────────────────────── */</span>
   <span class="c-prop">--font-display</span>:    <span class="c-val">'Fraunces', serif</span>;
-  <span class="c-prop">--fvs</span>:             <span class="c-val">'SOFT' 0, 'WONK' 1</span>;  <span class="c-cmnt">/* variable font axes */</span>
+  <span class="c-prop">--fvs</span>:             <span class="c-val">'SOFT' 0, 'WONK' 1</span>;
 
   <span class="c-cmnt">/* Spacing ───────────────────────────────────────────── */</span>
   <span class="c-prop">--space-xs</span>: <span class="c-val">0.5rem</span>;   <span class="c-cmnt">/* 8px  */</span>
@@ -417,11 +427,13 @@
   <span class="c-prop">--space-xl</span>: <span class="c-val">6rem</span>;     <span class="c-cmnt">/* 96px */</span>
 
   <span class="c-cmnt">/* Border radius ─────────────────────────────────────── */</span>
-  <span class="c-prop">--radius-sm</span>:   <span class="c-val">6px</span>;
-  <span class="c-prop">--radius-md</span>:   <span class="c-val">12px</span>;
+  <span class="c-prop">--radius-sm</span>:   <span class="c-val">8px</span>;
+  <span class="c-prop">--radius-md</span>:   <span class="c-val">14px</span>;
+  <span class="c-prop">--radius-lg</span>:   <span class="c-val">24px</span>;
   <span class="c-prop">--radius-pill</span>: <span class="c-val">9999px</span>;
 
 }</pre>
+        </div>
       </div>
     </section>
 
@@ -429,9 +441,16 @@
 
   <footer class="page" style="padding-top: 0;">
     <div class="site-footer">
-      <span>Ponderosa Coffee — Brand Style Guide</span>
-      <span>Central Point, OR · <a href="mailto:hello@ponderosa.coffee" style="color:inherit;">hello@ponderosa.coffee</a> · Beans sourced from Mythical Coffee, Gilbert AZ</span>
-      <span>Updated May 2026</span>
+      <span class="site-footer__divider">· · ·</span>
+      <div class="site-footer__row">
+        <span>Ponderosa Coffee</span>
+        <span>Central Point, OR</span>
+        <a href="mailto:hello@ponderosa.coffee">hello@ponderosa.coffee</a>
+        <span>Beans from Mythical Coffee, Gilbert AZ</span>
+      </div>
+      <div class="site-footer__row" style="margin-top: 0.25rem;">
+        <span style="opacity:0.5;">Brand Style Guide · Updated May 2026</span>
+      </div>
     </div>
   </footer>
 
