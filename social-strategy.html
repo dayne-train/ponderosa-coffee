@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en" class="is-locked">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ponderosa Coffee — Instagram Strategy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap" rel="stylesheet">
+  <script>
+    if (sessionStorage.getItem('pc_unlocked_v1') === '1') {
+      document.documentElement.classList.remove('is-locked');
+    }
+  </script>
+  <style>
+    :root {
+      --espresso:   #1a0f0a;
+      --coffee:     #3d1f0f;
+      --tan:        #8b6343;
+      --cream:      #f5ede0;
+      --forest:     #2d4a2d;
+      --sage:       #7a9b6e;
+      --mist:       #c9d8c0;
+      --stone:      #a09080;
+      --white:      #fdfaf6;
+
+      --bg:         var(--cream);
+      --text:       var(--espresso);
+      --muted:      var(--stone);
+      --surface:    var(--white);
+      --border:     rgba(61,31,15,0.12);
+
+      --fvs: 'SOFT' 0, 'WONK' 1;
+      --max: 760px;
+      --gap: 2rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: var(--fvs);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 3rem 1.5rem 6rem;
+    }
+
+    .doc {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    .doc-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .doc-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ── Section ── */
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    h2 {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── Principles ── */
+    .principles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .principle {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .principle strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .principle p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* ── Pillars ── */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .pillar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem;
+    }
+
+    .pillar-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--mist);
+      color: var(--forest);
+      border-radius: 100px;
+      padding: 0.2em 0.7em;
+      margin-bottom: 0.6rem;
+    }
+
+    .pillar strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .pillar p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .pillar ul {
+      margin-top: 0.6rem;
+      padding-left: 1.1rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .pillar ul li { margin-bottom: 0.15rem; }
+
+    /* ── Phase timeline ── */
+    .phases {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .phase {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0 1.5rem;
+      position: relative;
+    }
+
+    .phase + .phase { margin-top: 2rem; }
+
+    .phase-label {
+      padding-top: 0.15rem;
+      text-align: right;
+    }
+
+    .phase-num {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--tan);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .phase-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.2;
+      display: block;
+    }
+
+    .phase-trigger {
+      font-size: 0.75rem;
+      color: var(--sage);
+      margin-top: 0.35rem;
+      font-style: italic;
+      display: block;
+    }
+
+    .phase-body {
+      border-left: 1px solid var(--border);
+      padding-left: 1.5rem;
+      padding-bottom: 2rem;
+    }
+
+    .phase-body p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .phase-cadence {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.2em 0.6em;
+      margin-bottom: 0.85rem;
+      color: var(--text);
+    }
+
+    .post-types {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .post-types li {
+      font-size: 0.78rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.25em 0.65em;
+    }
+
+    .ideas {
+      margin: 0;
+      padding-left: 1.2rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .ideas li { margin-bottom: 0.2rem; }
+
+    /* ── Voice reminders ── */
+    .voice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .voice-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem;
+    }
+
+    .voice-box h3 {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .voice-box.do h3 { color: var(--sage); }
+    .voice-box.dont h3 { color: var(--tan); }
+
+    .voice-box ul {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .voice-box ul li {
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .voice-box ul li:last-child { border-bottom: none; }
+
+    /* ── Checklist ── */
+    .checklist {
+      list-style: none;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .checklist li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      display: inline-block;
+      margin-top: 2px;
+    }
+
+    .checklist .note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      display: block;
+      margin-top: 0.1rem;
+    }
+
+    @media (max-width: 560px) {
+      .phase { grid-template-columns: 1fr; }
+      .phase-label { text-align: left; padding-top: 0; margin-bottom: 0.5rem; }
+      .phase-body { border-left: 2px solid var(--border); }
+      .voice-grid { grid-template-columns: 1fr; }
+      .pillars { grid-template-columns: 1fr; }
+    }
+
+    /* ── Password gate ── */
+    html.is-locked,
+    html.is-locked body { overflow: hidden; }
+    html.is-locked body > *:not(#gate):not(script) { display: none !important; }
+
+    .gate {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      overflow: hidden;
+    }
+    .gate::before {
+      content: '';
+      position: absolute;
+      width: 720px;
+      height: 720px;
+      border-radius: 50%;
+      border: 1px solid rgba(61, 31, 15, 0.08);
+      top: -260px;
+      right: -180px;
+      pointer-events: none;
+    }
+    .gate::after {
+      content: '';
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      border-radius: 50%;
+      border: 1px solid rgba(61, 31, 15, 0.06);
+      bottom: -160px;
+      left: -120px;
+      pointer-events: none;
+    }
+    .gate__card {
+      position: relative;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+    .gate__eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--coffee);
+      opacity: 0.6;
+      margin-bottom: 1rem;
+    }
+    .gate__title {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: var(--fvs);
+      font-size: clamp(2.4rem, 8vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--coffee);
+      margin-bottom: 1.25rem;
+    }
+    .gate__sub {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .gate__form {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .gate__input {
+      flex: 1;
+      font-family: 'Fraunces', serif;
+      font-variation-settings: var(--fvs);
+      font-size: 1rem;
+      padding: 0.85rem 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--espresso);
+      outline: none;
+      transition: border-color 0.22s ease;
+    }
+    .gate__input::placeholder { color: var(--muted); font-style: italic; }
+    .gate__input:focus { border-color: var(--coffee); }
+    .gate__btn {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: var(--fvs);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--espresso);
+      color: var(--cream);
+      border: none;
+      border-radius: 8px;
+      padding: 0 1.4rem;
+      cursor: pointer;
+      transition: opacity 0.22s ease;
+    }
+    .gate__btn:hover { opacity: 0.85; }
+    .gate__error {
+      font-size: 0.78rem;
+      color: var(--coffee);
+      opacity: 0.75;
+      min-height: 1.2em;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .gate__foot {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--tan);
+      opacity: 0.75;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Password gate -->
+<div id="gate" class="gate" role="dialog" aria-modal="true" aria-label="Password required">
+  <div class="gate__card">
+    <p class="gate__eyebrow">Ponderosa Coffee</p>
+    <h1 class="gate__title">brand<br>style&nbsp;guide</h1>
+    <p class="gate__sub">Enter the password to continue.</p>
+    <form id="gate-form" class="gate__form" autocomplete="off">
+      <input id="gate-input" class="gate__input" type="password" placeholder="password" aria-label="Password" required>
+      <button class="gate__btn" type="submit">Enter</button>
+    </form>
+    <p id="gate-error" class="gate__error" aria-live="polite"></p>
+    <p class="gate__foot">Central Point, Oregon</p>
+  </div>
+</div>
+<script>
+  (function () {
+    var PW = 'ponderosa';
+    var KEY = 'pc_unlocked_v1';
+    var gate = document.getElementById('gate');
+    var form = document.getElementById('gate-form');
+    var input = document.getElementById('gate-input');
+    var err = document.getElementById('gate-error');
+
+    function unlock() {
+      document.documentElement.classList.remove('is-locked');
+      if (gate && gate.parentNode) gate.parentNode.removeChild(gate);
+    }
+
+    if (sessionStorage.getItem(KEY) === '1') {
+      unlock();
+      return;
+    }
+
+    if (input) setTimeout(function () { input.focus(); }, 50);
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (input.value.trim().toLowerCase() === PW) {
+        sessionStorage.setItem(KEY, '1');
+        unlock();
+      } else {
+        err.textContent = 'Not quite. Try again.';
+        input.value = '';
+        input.focus();
+      }
+    });
+  })();
+</script>
+
+<div class="doc">
+
+  <!-- Header -->
+  <header class="doc-header">
+    <p class="eyebrow">Ponderosa Coffee — Central Point, OR</p>
+    <h1>Instagram Strategy</h1>
+    <p class="doc-meta">Phase-based · milestone-driven · no fixed calendar</p>
+  </header>
+
+  <!-- Guiding principles -->
+  <section>
+    <h2>Guiding Principles</h2>
+    <div class="principles">
+      <div class="principle">
+        <strong>Show the real thing</strong>
+        <p>No stock photos, no over-produced setups. Ponderosa's appeal is the place itself — let the space and the craft do the work.</p>
+      </div>
+      <div class="principle">
+        <strong>Less is more</strong>
+        <p>A smaller number of well-made posts beats a relentless feed. Posting when you have something worth saying builds more trust than filling a quota.</p>
+      </div>
+      <div class="principle">
+        <strong>Document, don't perform</strong>
+        <p>Treat Instagram as a visual journal of the build and the business, not a stage. This keeps it sustainable for someone who doesn't love social.</p>
+      </div>
+      <div class="principle">
+        <strong>Local first</strong>
+        <p>Central Point and Medford are the community. Prioritize content that feels like a neighborhood conversation, not a brand broadcast.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content pillars -->
+  <section>
+    <h2>Content Pillars</h2>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.25rem;">Every post should fit one of these five buckets. They work in any phase.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="pillar-tag">Space</span>
+        <strong>The Place</strong>
+        <p>Architecture, materials, light, details. The visual identity of the room itself.</p>
+        <ul>
+          <li>Construction progress</li>
+          <li>Interior details / textures</li>
+          <li>Exterior / signage</li>
+          <li>Atmosphere shots</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="pillar-tag">Craft</span>
+        <strong>The Work</strong>
+        <p>Coffee preparation, sourcing, equipment — the tangible skill behind the product.</p>
+        <ul>
+          <li>Espresso pulls</li>
+          <li>Bean sourcing / origin</li>
+          <li>Brewing methods</li>
+          <li>Behind the bar</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="pillar-tag">People</span>
+        <strong>The Humans</strong>
+        <p>The team, regulars, and the broader community that makes the shop real.</p>
+        <ul>
+          <li>Staff introductions</li>
+          <li>Community partnerships</li>
+          <li>Regulars (with permission)</li>
+          <li>Events</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="pillar-tag">Product</span>
+        <strong>The Menu</strong>
+        <p>Drinks, food, seasonal offerings — what you actually sell.</p>
+        <ul>
+          <li>Drink reveals</li>
+          <li>Food pairings</li>
+          <li>Seasonal specials</li>
+          <li>New additions</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="pillar-tag">Story</span>
+        <strong>The Why</strong>
+        <p>The origin, values, and vision behind Ponderosa — what makes it distinct from a chain.</p>
+        <ul>
+          <li>Origin / founding story</li>
+          <li>Central Point roots</li>
+          <li>Design decisions</li>
+          <li>Longer-form captions</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Phase timeline -->
+  <section>
+    <h2>Phase Timeline</h2>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:2rem;">Phases advance by milestone, not calendar date. Move to the next phase when the trigger condition is met.</p>
+    <div class="phases">
+
+      <div class="phase">
+        <div class="phase-label">
+          <span class="phase-num">Phase 01</span>
+          <span class="phase-name">Construction</span>
+          <span class="phase-trigger">Now → permit + build complete</span>
+        </div>
+        <div class="phase-body">
+          <p>Build the audience before you open. Show progress, build curiosity, establish the aesthetic. Low stakes — you're inviting people to watch something being made.</p>
+          <span class="phase-cadence">1–2× per week</span>
+          <ul class="post-types">
+            <li>Construction progress</li>
+            <li>Space reveals</li>
+            <li>Brand / design teases</li>
+            <li>Behind-the-scenes</li>
+          </ul>
+          <ul class="ideas">
+            <li>Week one: introduce the account — one photo, one sentence about what's coming</li>
+            <li>Raw construction shots with a clean Ponderosa overlay or caption</li>
+            <li>Materials close-ups: tile, wood, hardware — the texture of the place</li>
+            <li>One Story Q&A: "What are you most excited to see here?"</li>
+            <li>Logo / brand identity reveal when ready</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-label">
+          <span class="phase-num">Phase 02</span>
+          <span class="phase-name">Pre-Open</span>
+          <span class="phase-trigger">Build done → opening day</span>
+        </div>
+        <div class="phase-body">
+          <p>Ramp up frequency. Space is taking shape — start revealing the finished interior, menu direction, and the people behind the counter. Build anticipation deliberately.</p>
+          <span class="phase-cadence">3–4× per week</span>
+          <ul class="post-types">
+            <li>Finished space reveals</li>
+            <li>Staff intros</li>
+            <li>Menu teases</li>
+            <li>Soft countdown</li>
+          </ul>
+          <ul class="ideas">
+            <li>"Meet the team" post for each staff member — one candid, one-line bio</li>
+            <li>First product photos: signature drink styled against the finished bar</li>
+            <li>Story countdown sticker when opening date is confirmed</li>
+            <li>Collab or shoutout to another local Central Point business</li>
+            <li>"Doors open [date]" announcement post with a strong image</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-label">
+          <span class="phase-num">Phase 03</span>
+          <span class="phase-name">Soft Open</span>
+          <span class="phase-trigger">First day open → ~2 weeks</span>
+        </div>
+        <div class="phase-body">
+          <p>Document the first days honestly. Real customers, real reactions, the energy of a new thing. Don't over-produce it — raw and real performs well here and requires less effort.</p>
+          <span class="phase-cadence">Daily or near-daily</span>
+          <ul class="post-types">
+            <li>First-day moments</li>
+            <li>Customer reactions</li>
+            <li>Staff in action</li>
+            <li>Repost / reshare</li>
+          </ul>
+          <ul class="ideas">
+            <li>Opening morning reel: 15–30 seconds, no music needed, let the ambient sound carry it</li>
+            <li>Reshare any customer tags — makes regulars feel seen early on</li>
+            <li>Quick "end of day" Story: what sold out, what surprised you</li>
+            <li>Staff candid mid-rush — no posed smiling required</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-label">
+          <span class="phase-num">Phase 04</span>
+          <span class="phase-name">Grand Opening</span>
+          <span class="phase-trigger">When you throw the event</span>
+        </div>
+        <div class="phase-body">
+          <p>Treat this as a one-time campaign sprint. You have permission to post heavily for a week. Before, during, and after content tells a complete story.</p>
+          <span class="phase-cadence">Daily for ~1 week</span>
+          <ul class="post-types">
+            <li>Event announcement</li>
+            <li>Day-of coverage</li>
+            <li>Thank-you post</li>
+            <li>Community recap</li>
+          </ul>
+          <ul class="ideas">
+            <li>Announcement post 1–2 weeks out: date, time, what to expect</li>
+            <li>Reminder Story the week of with event details</li>
+            <li>Live Stories during the event — low bar, just show what's happening</li>
+            <li>Next-day recap reel or carousel with the best moments</li>
+            <li>Gratitude post: "Thank you Central Point" closes the sprint gracefully</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-label">
+          <span class="phase-num">Phase 05</span>
+          <span class="phase-name">Steady State</span>
+          <span class="phase-trigger">Post-grand opening, indefinitely</span>
+        </div>
+        <div class="phase-body">
+          <p>The sustainable rhythm. Rotate through the five content pillars. Three posts a week is enough — quality over consistency theater.</p>
+          <span class="phase-cadence">3× per week</span>
+          <ul class="post-types">
+            <li>Rotating pillars</li>
+            <li>Seasonal specials</li>
+            <li>Community moments</li>
+            <li>Stories for daily texture</li>
+          </ul>
+          <ul class="ideas">
+            <li>One feed post per pillar per month keeps all five in rotation</li>
+            <li>Stories don't need to be polished — use them for daily specials, hours changes, casual moments</li>
+            <li>Seasonal drink launch = mini Phase 02 energy: tease, reveal, highlight</li>
+            <li>Once a quarter: a longer-form caption or origin story post</li>
+            <li>Resharing customer content is free content — encourage tagging with a subtle prompt at the counter</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Voice -->
+  <section>
+    <h2>Voice on Instagram</h2>
+    <div class="voice-grid">
+      <div class="voice-box do">
+        <h3>Do</h3>
+        <ul>
+          <li>Write like a person, not a brand</li>
+          <li>Short captions usually beat long ones</li>
+          <li>Name the place — "Central Point" earns local credibility</li>
+          <li>Let good photography speak; caption can be minimal</li>
+          <li>Use first person: "we" for the shop, "I" sparingly for personal moments</li>
+        </ul>
+      </div>
+      <div class="voice-box dont">
+        <h3>Avoid</h3>
+        <ul>
+          <li>Hashtag walls (3–5 targeted ones max)</li>
+          <li>Corporate language ("we're excited to announce…")</li>
+          <li>Posting just to post — a quiet week is fine</li>
+          <li>Over-edited images that don't match the real space</li>
+          <li>Engagement bait ("comment below!")</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Setup checklist -->
+  <section>
+    <h2>Account Setup Checklist</h2>
+    <ul class="checklist">
+      <li>
+        <span>
+          Set up Instagram Business account
+          <span class="note">Business account unlocks analytics and a contact button</span>
+        </span>
+      </li>
+      <li>
+        <span>
+          Profile photo — wordmark or logomark, square crop
+          <span class="note">Should read clearly at 40px</span>
+        </span>
+      </li>
+      <li>
+        <span>
+          Bio — one line: what you are + where you are
+          <span class="note">E.g. "Specialty coffee · Central Point, OR · Opening soon"</span>
+        </span>
+      </li>
+      <li>
+        <span>
+          Link in bio — website or a Linktree with hours, location
+        </span>
+      </li>
+      <li>
+        <span>
+          Username — @ponderosacoffee or closest available handle
+          <span class="note">Consistent with any future web presence</span>
+        </span>
+      </li>
+      <li>
+        <span>
+          Post a first placeholder image before going public
+          <span class="note">Avoid launching a profile that's completely empty</span>
+        </span>
+      </li>
+      <li>
+        <span>
+          Connect to a Facebook Page (even if you don't post there)
+          <span class="note">Required for Meta ads later; costs nothing now</span>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="is-locked">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,64 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>
+    if (sessionStorage.getItem('pc_unlocked_v1') === '1') {
+      document.documentElement.classList.remove('is-locked');
+    }
+  </script>
 </head>
 <body>
+
+  <!-- Password gate -->
+  <div id="gate" class="gate" role="dialog" aria-modal="true" aria-label="Password required">
+    <div class="gate__card">
+      <p class="gate__eyebrow">Ponderosa Coffee</p>
+      <h1 class="gate__title">brand<br>style&nbsp;guide</h1>
+      <p class="gate__sub">Enter the password to continue.</p>
+      <form id="gate-form" class="gate__form" autocomplete="off">
+        <input id="gate-input" class="gate__input" type="password" placeholder="password" aria-label="Password" required>
+        <button class="gate__btn" type="submit">Enter</button>
+      </form>
+      <p id="gate-error" class="gate__error" aria-live="polite"></p>
+      <p class="gate__foot">Central Point, Oregon</p>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var PW = 'ponderosa';
+      var KEY = 'pc_unlocked_v1';
+      var gate = document.getElementById('gate');
+      var form = document.getElementById('gate-form');
+      var input = document.getElementById('gate-input');
+      var err = document.getElementById('gate-error');
+
+      function unlock() {
+        document.documentElement.classList.remove('is-locked');
+        if (gate && gate.parentNode) gate.parentNode.removeChild(gate);
+      }
+
+      if (sessionStorage.getItem(KEY) === '1') {
+        unlock();
+        return;
+      }
+
+      if (input) {
+        setTimeout(function () { input.focus(); }, 50);
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (input.value.trim().toLowerCase() === PW) {
+          sessionStorage.setItem(KEY, '1');
+          unlock();
+        } else {
+          err.textContent = 'Not quite. Try again.';
+          input.value = '';
+          input.focus();
+        }
+      });
+    })();
+  </script>
 
   <!-- Grain texture overlay -->
   <div class="grain" aria-hidden="true"></div>
@@ -23,6 +79,7 @@
       <a href="#typography">Type</a>
       <a href="#voice">Voice</a>
       <a href="#imagery">Imagery</a>
+      <a href="#instagram">Instagram</a>
       <a href="#tokens">Tokens</a>
     </div>
   </nav>
@@ -426,6 +483,457 @@
           <span class="imagery-note__body">Stock photography · bright flat lighting · posed smiling portraits · cluttered or busy backgrounds · heavy filters or oversaturation</span>
         </div>
       </div>
+    </section>
+
+    <!-- ── Instagram ───────────────────────────────────────── -->
+    <section id="instagram">
+      <p class="section-label">Instagram</p>
+
+      <p class="imagery-intro">A place-based account for a place-based shop. Quiet, local, made to last.</p>
+
+      <!-- Strategic posture -->
+      <div class="brand-foundation">
+        <div class="foundation-item">
+          <span class="foundation-label">Goal</span>
+          <span class="foundation-value">Be top of mind in the Rogue Valley. Not viral — local.</span>
+        </div>
+        <div class="foundation-item">
+          <span class="foundation-label">Audience</span>
+          <span class="foundation-value">Central Point, Medford, Jacksonville, Ashland regulars first. Coffee community second. Travelers passing through third.</span>
+        </div>
+        <div class="foundation-item">
+          <span class="foundation-label">Posture</span>
+          <span class="foundation-value">Document, don't perform. Geotag over hashtag. Saves over likes. A quiet week is a feature.</span>
+        </div>
+        <div class="foundation-item">
+          <span class="foundation-label">Handle</span>
+          <span class="foundation-value"><a href="https://instagram.com/ponderosa_coffee" target="_blank" rel="noopener">@ponderosa_coffee</a></span>
+        </div>
+      </div>
+
+      <!-- Guiding Principles -->
+      <span class="principles-header">Guiding Principles</span>
+      <div class="principles">
+        <div class="principle" data-num="01">
+          <span class="principle__num">01</span>
+          <span class="principle__title">Document, don't perform</span>
+          <span class="principle__body">Treat the feed as a visual journal of the build and the business — not a stage. This keeps it sustainable for someone who doesn't love social.</span>
+        </div>
+        <div class="principle" data-num="02">
+          <span class="principle__num">02</span>
+          <span class="principle__title">Show the real room</span>
+          <span class="principle__body">No stock photos, no over-produced setups. Ponderosa's pull is the place itself. Let the space and the craft do the work.</span>
+        </div>
+        <div class="principle" data-num="03">
+          <span class="principle__num">03</span>
+          <span class="principle__title">Less is more</span>
+          <span class="principle__body">Fewer well-made posts beat a relentless feed. Posting when you have something worth saying builds more trust than filling a quota.</span>
+        </div>
+        <div class="principle" data-num="04">
+          <span class="principle__num">04</span>
+          <span class="principle__title">Local before everything</span>
+          <span class="principle__body">Central Point and the wider valley are the community. Prioritize content that reads like a neighborhood conversation, not a brand broadcast.</span>
+        </div>
+      </div>
+
+      <!-- Content Pillars -->
+      <span class="principles-header">Content Pillars</span>
+      <p class="ig-helper">Every post fits one of five buckets. They work in any phase.</p>
+      <div class="ig-pillars">
+        <div class="ig-pillar">
+          <span class="ig-pillar__tag ig-pillar__tag--coffee">Space</span>
+          <span class="ig-pillar__title">The Place</span>
+          <span class="ig-pillar__body">Architecture, materials, light, details. The visual identity of the room itself.</span>
+          <ul class="ig-pillar__list">
+            <li>Construction progress</li>
+            <li>Interior details / textures</li>
+            <li>Exterior / signage</li>
+            <li>Atmosphere shots</li>
+          </ul>
+        </div>
+        <div class="ig-pillar">
+          <span class="ig-pillar__tag ig-pillar__tag--espresso">Craft</span>
+          <span class="ig-pillar__title">The Work</span>
+          <span class="ig-pillar__body">Coffee preparation, sourcing, equipment — the tangible skill behind the product.</span>
+          <ul class="ig-pillar__list">
+            <li>Espresso pulls</li>
+            <li>Bean sourcing / origin</li>
+            <li>Brewing methods</li>
+            <li>Behind the bar</li>
+          </ul>
+        </div>
+        <div class="ig-pillar">
+          <span class="ig-pillar__tag ig-pillar__tag--tan">People</span>
+          <span class="ig-pillar__title">The Humans</span>
+          <span class="ig-pillar__body">The team, regulars, and the broader community that makes the shop real.</span>
+          <ul class="ig-pillar__list">
+            <li>Staff introductions</li>
+            <li>Community partnerships</li>
+            <li>Regulars (with permission)</li>
+            <li>Events</li>
+          </ul>
+        </div>
+        <div class="ig-pillar">
+          <span class="ig-pillar__tag ig-pillar__tag--forest">Product</span>
+          <span class="ig-pillar__title">The Menu</span>
+          <span class="ig-pillar__body">Drinks, food, seasonal offerings — what you actually sell.</span>
+          <ul class="ig-pillar__list">
+            <li>Drink reveals</li>
+            <li>Food pairings</li>
+            <li>Seasonal specials</li>
+            <li>New additions</li>
+          </ul>
+        </div>
+        <div class="ig-pillar">
+          <span class="ig-pillar__tag ig-pillar__tag--sage">Story</span>
+          <span class="ig-pillar__title">The Why</span>
+          <span class="ig-pillar__body">The origin, values, and vision behind Ponderosa — what makes it distinct from a chain.</span>
+          <ul class="ig-pillar__list">
+            <li>Origin / founding story</li>
+            <li>Central Point roots</li>
+            <li>Design decisions</li>
+            <li>Longer-form captions</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Phase Timeline -->
+      <span class="principles-header">Phase Timeline</span>
+      <p class="ig-helper">Phases advance by milestone, not calendar date. Move forward when the trigger condition is met.</p>
+      <div class="ig-phases">
+
+        <div class="ig-phase">
+          <div class="ig-phase__rail">
+            <span class="ig-phase__num">Phase 01</span>
+            <span class="ig-phase__name">Construction</span>
+            <span class="ig-phase__trigger">Now → build complete</span>
+          </div>
+          <div class="ig-phase__body">
+            <span class="ig-phase__cadence">1–2× per week</span>
+            <p class="ig-phase__lead">Build the audience before you open. Show progress, build curiosity, establish the aesthetic. Low stakes — you're inviting people to watch something being made.</p>
+            <ul class="ig-phase__tags">
+              <li>Construction progress</li>
+              <li>Space reveals</li>
+              <li>Brand teases</li>
+              <li>Behind-the-scenes</li>
+            </ul>
+            <ul class="ig-phase__ideas">
+              <li>Week one: introduce the account — one photo, one sentence about what's coming.</li>
+              <li>Raw construction shots with a clean Ponderosa overlay or caption.</li>
+              <li>Materials close-ups: tile, wood, hardware — the texture of the place.</li>
+              <li>One Story Q&amp;A: "what are you most excited to see here?"</li>
+              <li>Logo / brand identity reveal when ready.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ig-phase">
+          <div class="ig-phase__rail">
+            <span class="ig-phase__num">Phase 02</span>
+            <span class="ig-phase__name">Pre-Open</span>
+            <span class="ig-phase__trigger">Build done → opening day</span>
+          </div>
+          <div class="ig-phase__body">
+            <span class="ig-phase__cadence">3–4× per week</span>
+            <p class="ig-phase__lead">Ramp up frequency. Reveal the finished interior, menu direction, and the people behind the counter. Build anticipation deliberately.</p>
+            <ul class="ig-phase__tags">
+              <li>Finished space</li>
+              <li>Staff intros</li>
+              <li>Menu teases</li>
+              <li>Soft countdown</li>
+            </ul>
+            <ul class="ig-phase__ideas">
+              <li>"Meet the team" post for each staff member — one candid, one-line bio.</li>
+              <li>First product photos: signature drink styled against the finished bar.</li>
+              <li>Story countdown sticker when opening date is confirmed.</li>
+              <li>Collab or shoutout to a Central Point neighbor.</li>
+              <li>"Doors open [date]" announcement post with a strong image.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ig-phase">
+          <div class="ig-phase__rail">
+            <span class="ig-phase__num">Phase 03</span>
+            <span class="ig-phase__name">Soft Open</span>
+            <span class="ig-phase__trigger">First day → ~2 weeks</span>
+          </div>
+          <div class="ig-phase__body">
+            <span class="ig-phase__cadence">Daily or near-daily</span>
+            <p class="ig-phase__lead">Document the first days honestly. Real customers, real reactions, the energy of a new thing. Raw and real performs well here and requires less effort.</p>
+            <ul class="ig-phase__tags">
+              <li>First-day moments</li>
+              <li>Customer reactions</li>
+              <li>Staff in action</li>
+              <li>Reshares</li>
+            </ul>
+            <ul class="ig-phase__ideas">
+              <li>Opening morning reel: 15–30 seconds, no music needed, let the ambient sound carry it.</li>
+              <li>Reshare any customer tags — makes regulars feel seen early on.</li>
+              <li>Quick "end of day" Story: what sold out, what surprised you.</li>
+              <li>Staff candid mid-rush — no posed smiling required.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ig-phase">
+          <div class="ig-phase__rail">
+            <span class="ig-phase__num">Phase 04</span>
+            <span class="ig-phase__name">Grand Opening</span>
+            <span class="ig-phase__trigger">When you throw the event</span>
+          </div>
+          <div class="ig-phase__body">
+            <span class="ig-phase__cadence">Daily for ~1 week</span>
+            <p class="ig-phase__lead">A one-time campaign sprint. You have permission to post heavily for a week. Before, during, and after content tells a complete story.</p>
+            <ul class="ig-phase__tags">
+              <li>Event announcement</li>
+              <li>Day-of coverage</li>
+              <li>Thank-you post</li>
+              <li>Community recap</li>
+            </ul>
+            <ul class="ig-phase__ideas">
+              <li>Announcement post 1–2 weeks out: date, time, what to expect.</li>
+              <li>Reminder Story the week of with event details.</li>
+              <li>Live Stories during the event — low bar, just show what's happening.</li>
+              <li>Next-day recap reel or carousel with the best moments.</li>
+              <li>Gratitude post: "thank you, central point" closes the sprint gracefully.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ig-phase">
+          <div class="ig-phase__rail">
+            <span class="ig-phase__num">Phase 05</span>
+            <span class="ig-phase__name">Steady State</span>
+            <span class="ig-phase__trigger">Post-grand opening, indefinitely</span>
+          </div>
+          <div class="ig-phase__body">
+            <span class="ig-phase__cadence">3× per week</span>
+            <p class="ig-phase__lead">The sustainable rhythm. Rotate through the five pillars. Three posts a week is enough — quality over consistency theater.</p>
+            <ul class="ig-phase__tags">
+              <li>Rotating pillars</li>
+              <li>Seasonal specials</li>
+              <li>Community moments</li>
+              <li>Stories for daily texture</li>
+            </ul>
+            <ul class="ig-phase__ideas">
+              <li>One feed post per pillar per month keeps all five in rotation.</li>
+              <li>Stories don't need to be polished — use them for daily specials, hours changes, casual moments.</li>
+              <li>Seasonal drink launch = mini Phase 02 energy: tease, reveal, highlight.</li>
+              <li>Once a quarter: a longer-form caption or origin story post.</li>
+              <li>Resharing customer content is free content — a subtle prompt at the counter encourages tagging.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- First 9-Grid -->
+      <span class="principles-header">The First 9-Grid</span>
+      <p class="ig-helper">A first-time visitor reads the top 9 posts as a single composition. Plan that grid — alternate dark and light tiles, rotate pillars, never stack two of the same in a row.</p>
+      <div class="ig-grid-row">
+        <div class="ig-grid-mock" aria-hidden="true">
+          <div class="ig-grid-tile ig-grid-tile--coffee"><span>Place</span></div>
+          <div class="ig-grid-tile ig-grid-tile--espresso"><span>Craft</span></div>
+          <div class="ig-grid-tile ig-grid-tile--tan"><span>People</span></div>
+          <div class="ig-grid-tile ig-grid-tile--forest"><span>Product</span></div>
+          <div class="ig-grid-tile ig-grid-tile--coffee"><span>Place</span></div>
+          <div class="ig-grid-tile ig-grid-tile--espresso"><span>Craft</span></div>
+          <div class="ig-grid-tile ig-grid-tile--tan"><span>People</span></div>
+          <div class="ig-grid-tile ig-grid-tile--sage"><span>Story</span></div>
+          <div class="ig-grid-tile ig-grid-tile--coffee"><span>Place</span></div>
+        </div>
+        <div class="ig-grid-notes">
+          <p><strong>Rhythm test:</strong> imagine the grid in greyscale. The composition should still hold.</p>
+          <p><strong>Pillar test:</strong> no row should be the same pillar twice. Mix the buckets like a hand of cards.</p>
+          <p><strong>Anchor tiles:</strong> a hero photo of the room or a hero pour every third post — they're the visual return point.</p>
+        </div>
+      </div>
+
+      <!-- Caption Frameworks -->
+      <span class="principles-header">Caption Frameworks</span>
+      <p class="ig-helper">Three reusable formulas. Pick the one that fits the image, then stop writing.</p>
+      <div class="ig-caps">
+        <div class="ig-cap">
+          <span class="ig-cap__label">Observation</span>
+          <span class="ig-cap__formula">One image. One sentence about what's there.</span>
+          <p class="ig-cap__example">morning fog held over the valley all the way to ten.</p>
+        </div>
+        <div class="ig-cap">
+          <span class="ig-cap__label">Single Fact</span>
+          <span class="ig-cap__formula">Name + origin or method. Nothing else.</span>
+          <p class="ig-cap__example">washed ethiopian. mythical coffee, gilbert az.</p>
+        </div>
+        <div class="ig-cap">
+          <span class="ig-cap__label">Invitation</span>
+          <span class="ig-cap__formula">Time, place, what's happening.</span>
+          <p class="ig-cap__example">saturday, 9–noon. acoustic in the back room.</p>
+        </div>
+      </div>
+
+      <!-- Hashtags & Geotag -->
+      <span class="principles-header">Hashtags &amp; Geotag</span>
+      <p class="ig-helper">Geotag is more valuable than hashtags for a place-based business. Use five to seven tags total, never the full thirty.</p>
+      <div class="ig-tags">
+        <div class="ig-tag-group">
+          <span class="ig-tag-group__label">Local</span>
+          <span class="ig-tag-group__items">#centralpointoregon · #roguevalley · #medfordoregon · #southernoregon · #jacksonvilleor</span>
+        </div>
+        <div class="ig-tag-group">
+          <span class="ig-tag-group__label">Coffee</span>
+          <span class="ig-tag-group__items">#specialtycoffee · #thirdwavecoffee · #pourover · #espressotonic</span>
+        </div>
+        <div class="ig-tag-group">
+          <span class="ig-tag-group__label">Branded</span>
+          <span class="ig-tag-group__items">#ponderosacoffee</span>
+        </div>
+        <div class="ig-tag-group ig-tag-group--note">
+          <span class="ig-tag-group__label">Geotag</span>
+          <span class="ig-tag-group__items">Always tag the shop's location. The location pin is the single most valuable discovery surface — more reach than any hashtag for a small local account.</span>
+        </div>
+      </div>
+
+      <!-- Story Highlights -->
+      <span class="principles-header">Story Highlights</span>
+      <p class="ig-helper">Highlights are the navigation of the profile. Keep this permanent set. Covers should match the brand palette — cream tile, coffee icon.</p>
+      <div class="ig-highlights">
+        <div class="ig-highlight">
+          <span class="ig-highlight__dot"></span>
+          <span class="ig-highlight__name">Menu</span>
+          <span class="ig-highlight__sub">Current drinks + food</span>
+        </div>
+        <div class="ig-highlight">
+          <span class="ig-highlight__dot"></span>
+          <span class="ig-highlight__name">Hours</span>
+          <span class="ig-highlight__sub">Weekly + holiday</span>
+        </div>
+        <div class="ig-highlight">
+          <span class="ig-highlight__dot"></span>
+          <span class="ig-highlight__name">Place</span>
+          <span class="ig-highlight__sub">Interior reveals</span>
+        </div>
+        <div class="ig-highlight">
+          <span class="ig-highlight__dot"></span>
+          <span class="ig-highlight__name">Team</span>
+          <span class="ig-highlight__sub">Staff introductions</span>
+        </div>
+        <div class="ig-highlight">
+          <span class="ig-highlight__dot"></span>
+          <span class="ig-highlight__name">Press</span>
+          <span class="ig-highlight__sub">Local coverage</span>
+        </div>
+        <div class="ig-highlight">
+          <span class="ig-highlight__dot"></span>
+          <span class="ig-highlight__name">Events</span>
+          <span class="ig-highlight__sub">Past + upcoming</span>
+        </div>
+      </div>
+
+      <!-- Engagement & Measurement -->
+      <div class="ig-pair">
+        <div class="ig-pair__col">
+          <span class="principles-header">Engagement Protocol</span>
+          <ul class="ig-rules">
+            <li><strong>Comments —</strong> reply same day, in voice. Brief is the bar.</li>
+            <li><strong>DMs —</strong> reply within 24 hours. Treat as customer service.</li>
+            <li><strong>Tags &amp; mentions —</strong> reshare to Story with a one-word thanks.</li>
+            <li><strong>Critical or sensitive —</strong> reply once, kindly. Then take it offline.</li>
+          </ul>
+        </div>
+        <div class="ig-pair__col">
+          <span class="principles-header">What to Measure</span>
+          <ul class="ig-rules">
+            <li><strong>Watch —</strong> saves, shares, profile visits, in-store mentions.</li>
+            <li><strong>Ignore —</strong> follower count, raw like totals.</li>
+            <li><strong>Cadence —</strong> review monthly. Don't read daily numbers.</li>
+            <li><strong>Signal —</strong> a regular says "I saw your post." That's the metric.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- The rainy Tuesday backlog -->
+      <div class="ig-callout">
+        <span class="ig-callout__label">The Rainy Tuesday Rule</span>
+        <p class="ig-callout__body">Keep five to ten evergreen photos in reserve — a window light shot, a bean closeup, a signage detail, a quiet pour. A slow week should never feel empty, and you should never have to force a post.</p>
+      </div>
+
+      <!-- Voice on the feed -->
+      <span class="copy-examples-header">Voice on the Feed</span>
+      <div class="copy-examples">
+        <div class="copy-card copy-card--do">
+          <div class="copy-card__header">Do</div>
+          <div class="copy-card__body">
+            <p class="copy-card__example">Write like a person, not a brand.</p>
+            <p class="copy-card__example">Short captions usually win. Name the place.</p>
+            <p class="copy-card__example">Let good photography speak. The caption can be minimal.</p>
+            <p class="copy-card__example">Quiet weeks are fine. Don't post to fill a quota.</p>
+          </div>
+        </div>
+        <div class="copy-card copy-card--dont">
+          <div class="copy-card__header">Avoid</div>
+          <div class="copy-card__body">
+            <p class="copy-card__example">Hashtag walls — five is plenty.</p>
+            <p class="copy-card__example">"We are SO excited to announce…"</p>
+            <p class="copy-card__example">Over-edited images that don't match the real room.</p>
+            <p class="copy-card__example">"Comment below!" engagement bait.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Setup Checklist -->
+      <span class="principles-header">Account Setup</span>
+      <ul class="ig-checklist">
+        <li>
+          <span class="ig-checklist__box" aria-hidden="true"></span>
+          <span class="ig-checklist__content">
+            <span class="ig-checklist__title">Instagram Business account</span>
+            <span class="ig-checklist__note">Unlocks analytics and a contact button.</span>
+          </span>
+        </li>
+        <li>
+          <span class="ig-checklist__box" aria-hidden="true"></span>
+          <span class="ig-checklist__content">
+            <span class="ig-checklist__title">Wordmark or logomark profile photo</span>
+            <span class="ig-checklist__note">Must read clearly at 40px. Square crop.</span>
+          </span>
+        </li>
+        <li>
+          <span class="ig-checklist__box" aria-hidden="true"></span>
+          <span class="ig-checklist__content">
+            <span class="ig-checklist__title">One-line bio</span>
+            <span class="ig-checklist__note">"specialty coffee · central point, OR · opening soon"</span>
+          </span>
+        </li>
+        <li>
+          <span class="ig-checklist__box" aria-hidden="true"></span>
+          <span class="ig-checklist__content">
+            <span class="ig-checklist__title">Link in bio</span>
+            <span class="ig-checklist__note">Site or single landing page with hours, address, map.</span>
+          </span>
+        </li>
+        <li>
+          <span class="ig-checklist__box" aria-hidden="true"></span>
+          <span class="ig-checklist__content">
+            <span class="ig-checklist__title">Handle: @ponderosa_coffee</span>
+            <span class="ig-checklist__note">Match the site and email domain wherever possible.</span>
+          </span>
+        </li>
+        <li>
+          <span class="ig-checklist__box" aria-hidden="true"></span>
+          <span class="ig-checklist__content">
+            <span class="ig-checklist__title">Connect to a Facebook Page</span>
+            <span class="ig-checklist__note">Required for Meta ads later. No cost now.</span>
+          </span>
+        </li>
+        <li>
+          <span class="ig-checklist__box" aria-hidden="true"></span>
+          <span class="ig-checklist__content">
+            <span class="ig-checklist__title">Pre-launch placeholder post</span>
+            <span class="ig-checklist__note">A profile with zero posts feels abandoned at first impression.</span>
+          </span>
+        </li>
+      </ul>
+
     </section>
 
     <!-- ── Design Tokens ───────────────────────────────────── -->
